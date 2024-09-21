@@ -162,7 +162,14 @@ Now, you will create a GitHub repository and push your project files there.
      git commit -m "Initial commit"
      git remote add origin https://github.com/your-username/insurance-claim-prediction.git
      git push -u origin main  # Push files to GitHub
+     
+What is Git LFS?
+Git LFS is a system for managing large files in Git repositories.
+It stores large files (like machine learning models, datasets, etc.) outside the main repository while still keeping references to them in the repository.
      ```
+     GitHub has a limit of 100 MB for normal file uploads, and since your claim_status_joblib_new file is 129 MB, using Git LFS is the best way to manage it. It ensures that your large model file doesn’t slow down the repository while still being available when needed.
+    
+     git lfs track "claim_status_joblib_new"
 
 ---
 
