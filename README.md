@@ -25,37 +25,6 @@ We will employ a machine learning approach to develop the predictive model, util
 - It is faster and more efficient than the default `pickle` module for large arrays or models.
 - It’s widely used in machine learning to save models once they have been trained.
 
-### What Does **joblib.dump** Do?
-
-In this specific line of code:
-```python
-joblib.dump(rf_model_oversampled, 'claim_status_joblib_new')
-```
-
-- **`rf_model_oversampled`**: This is the **trained Random Forest model** that you created using oversampled data to address class imbalance.
-- **`'claim_status_joblib_new'`**: This is the **file name** under which the model will be saved. The model is saved in a file called `claim_status_joblib_new` for later use.
-
-The function `joblib.dump()` **saves the model** (`rf_model_oversampled`) into a file (`claim_status_joblib_new`) so you can reuse the model without retraining it.
-
-### Why Use **joblib.dump**?
-
-1. **Efficiency**: Once you have trained your model, you don’t want to spend time retraining it every time you use it. By saving the trained model with `joblib.dump`, you can quickly load it later and use it to make predictions.
-  
-2. **Reusable**: The saved file can be **shared or deployed**. For instance, when deploying the app on Streamlit, you load the model (`joblib.load('claim_status_joblib_new')`) to make predictions without needing to retrain it each time.
-
-### Why Save the Model in This Case?
-In your project:
-- **`rf_model_oversampled`** is the Random Forest model that was trained using an **oversampling technique** to balance the dataset (handling the class imbalance between insurance claims and non-claims).
-  
-By saving it to `'claim_status_joblib_new'`, you ensure that the model can be reused:
-- In your **Streamlit app** where you load the model to make predictions.
-- In **future analyses or deployments**, where you don’t need to retrain the model from scratch.
-
-### Summary of **joblib.dump**:
-- **joblib** is used for efficiently saving and loading large objects like machine learning models.
-- **`joblib.dump(model, 'filename')`** saves the trained model to a file.
-- In your case, **`claim_status_joblib_new`** stores the Random Forest model so it can be quickly loaded and used later.
-
 By saving the model, you avoid retraining and can instantly deploy it in your app or project.
 
 
